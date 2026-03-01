@@ -394,6 +394,8 @@
       font-weight: 600;
       color: var(--text-primary);
     }
+
+    /* Мобільне меню — виправлені селектори */
     @media (max-width: 768px) {
       :root {
         --nav-height: 56px;
@@ -412,25 +414,26 @@
         border-bottom: 1px solid var(--border);
         flex-direction: column;
         align-items: stretch;
-        padding: 12px 16px 20px;
+        padding: 0 16px; /* приховано — padding 0, щоб не займало місця */
         gap: 4px;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.35s ease, padding var(--transition);
+        transition: max-height 0.35s ease, padding 0.2s ease;
       }
 
-      .menu-toggle:checked ~ .header-inner nav {
+      /* Відображаємо меню при чекнутому toggle */
+      #menu-toggle:checked ~ header .header-inner nav {
         max-height: 600px;
         padding: 12px 16px 20px;
       }
 
-      .menu-toggle:checked ~ .header-inner .menu-btn span:nth-child(1) {
+      #menu-toggle:checked ~ header .header-inner .menu-btn span:nth-child(1) {
         transform: translateY(7px) rotate(45deg);
       }
-      .menu-toggle:checked ~ .header-inner .menu-btn span:nth-child(2) {
+      #menu-toggle:checked ~ header .header-inner .menu-btn span:nth-child(2) {
         opacity: 0;
       }
-      .menu-toggle:checked ~ .header-inner .menu-btn span:nth-child(3) {
+      #menu-toggle:checked ~ header .header-inner .menu-btn span:nth-child(3) {
         transform: translateY(-7px) rotate(-45deg);
       }
 
